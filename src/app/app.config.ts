@@ -7,5 +7,14 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 import { provideStore } from '@ngrx/store';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withViewTransitions()), provideClientHydration(), provideAnimations(), provideStore()]
+  providers: [
+    
+    provideRouter(routes, withViewTransitions()),
+    provideClientHydration(),
+    provideAnimations(),
+    provideStore()
+    
+  
+  
+  ]
 };
