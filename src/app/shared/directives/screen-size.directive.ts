@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Output, Renderer2 } from '@angular/core';
 import { ScreenSizeSignal } from '../../signals/screen-size-signal';
 
 @Directive({
@@ -8,9 +8,23 @@ import { ScreenSizeSignal } from '../../signals/screen-size-signal';
 export class ScreenSizeDirective {
 
 
+  @Output() screenChange = new EventEmitter();
+
   updatedScreenSize!: string;
 
   constructor(private screenSizeSignal: ScreenSizeSignal, private renderer: Renderer2, private el: ElementRef) { }
+
+
+
+  ngAfterViewInit(){
+
+    this.setScreenSize();
+    this.renderer.listen('window', 'resize', (event) => {
+      this.setScreenSize();
+    });
+
+  }
+
 
   private setScreenSize(){
 
