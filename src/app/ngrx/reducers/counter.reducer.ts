@@ -31,9 +31,8 @@ export const counterReducer = createReducer(
 
         return {
             ...state,
-            
-            double: calculateDouble(updatedCount),
             count: updatedCount,
+            double: calculateDouble(updatedCount)
         }
     }
     
@@ -41,13 +40,30 @@ export const counterReducer = createReducer(
     ),
         
     
-    on(CounterActions.decrement,
-         state => ({...state, count: state.count - 1 })
-         ),
+    on(CounterActions.decrement,(state) => {
+
+
+        const updatedCount = state.count - 1 
+
+        return {
+            ...state,
+            count: updatedCount,
+            double: calculateDouble(updatedCount)
+        }
+    }
+    ),
     
-    on(CounterActions.reset,
-         state => ({...state, count: 0 })
-         )
+    on(CounterActions.reset,(state) => {
+
+
+        const updatedCount = 0 
+
+        return {
+            ...state,
+            count: updatedCount,
+            double: 0
+        }
+    })
     
 );
 
