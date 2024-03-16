@@ -5,10 +5,21 @@
         <!-- Inner Container -->
         <div class="flex items-center justify-between">
 
-            <!-- Burger Menu -->
-            <button mat-icon-button color="accent">
-                <mat-icon>menu</mat-icon>
-              </button>
+            <!--SIDE NAV BAR BUTTON Logic:
+                
+                depending on the value from the sidebarSignal, the icon for the sidebar will differ 
+            -->
+            @if (sidebarSignal.sidebarOpen()) {
+                <!-- If true aka open, show the closed icon -->
+                <mat-icon class="cursor-pointer dark:text-white" (click)="toggleSideNavSignal()">close</mat-icon>
+          
+            }
+            @else{
+                 <!-- If false show the menuicon -->
+                <mat-icon class="cursor-pointer dark:text-white" (click)="toggleSideNavSignal()">menu</mat-icon>
+            } 
+
+    
                 
             <!-- Title -->
             <span class="text-xl font-semibold text-gray-700 md:text-4xl dark:text-white">
