@@ -16,14 +16,16 @@ import { AppState } from '../../ngrx/state/app.state';
 })
 export class CounterComponent {
 
-  count$: Observable<number>;
+  constructor(private store: Store<AppState>){
+    //Now we can initalize the count$ from the store
+  }
+
+  count$ = this.store.select(CounterSelector.selectCount);
+  double$= this.store.select(CounterSelector.selectDouble);
 
 
   //
-  constructor(private store: Store<AppState>){
-    //Now we can initalize the count$ from the store
-    this.count$ = this.store.select(CounterSelector.selectCount);
-  }
+ 
 
 
   dispatchIncrement(): void {
