@@ -3,12 +3,12 @@ import * as CounterActions from "../actions/counter.action"
 
 
 export interface ICounterState {
-    count : number
+    count: number;
 }
 
 
 export const initalCounterState: ICounterState = {
-    count : 0
+    count: 0
 }
 
 
