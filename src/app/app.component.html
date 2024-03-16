@@ -1,17 +1,25 @@
-<div>
+<div class="relative min-h-screen bg-gray-100 dark:bg-gray-800">
     <!-- Navbar  -->
-    <app-header></app-header>
+    <app-header/>
+    <mat-sidenav-container class="dark:bg-gray-800">
 
 
-<h1 class="text-3xl font-bold underline" > App component works </h1>
-
-
-
-
+        <h1 class="text-3xl font-bold underline" > App component works </h1>
 
 
 
-<router-outlet></router-outlet>
+
+
+
+
+                <router-outlet></router-outlet>
+
+
+
+    </mat-sidenav-container>
+
+
+
 <!-- footer -->
 <app-footer></app-footer>
 </div>
