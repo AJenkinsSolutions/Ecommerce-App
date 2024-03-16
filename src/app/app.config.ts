@@ -16,7 +16,5 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState('counter', counterReducer)
     
-  
-  
   ]
 };

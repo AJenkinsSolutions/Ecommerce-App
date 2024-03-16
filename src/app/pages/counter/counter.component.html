@@ -4,7 +4,7 @@
         <h1 class="text-2xl font-bold text-gray-100">Counter App</h1>
       </div>
       <div id="counter" class="mb-4 text-4xl font-bold text-blue-500">
-        Single:
+        Single: {{count$ | async}}
   
       </div>
       <div id="counter" class="mb-4 text-4xl font-bold text-blue-500">
@@ -13,11 +13,11 @@
       </div>
     
       <div class="flex justify-center space-x-4">
-        <button  id="increment"
+        <button (click)="dispatchIncrement()"  id="increment"
           class="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Increment</button>
-        <button  id="decrement"
+        <button (click)="dispatchDecrement()" id="decrement"
           class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Decrement</button>
-        <button  id="reset"
+        <button (click)="dispatchReset()" id="reset"
           class="px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700">Reset</button>
       </div>
     </div>
