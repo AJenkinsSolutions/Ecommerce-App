@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { ICounterState } from '../../ngrx/reducers/counter.reducer';
+import { CounterState } from '../../ngrx/reducers/counter.reducer';
 import { Observable } from 'rxjs';
 import * as CounterActions from '../../ngrx/actions/counter.action'
 import * as CounterSelector from '../../ngrx/selectors/counter.selector';

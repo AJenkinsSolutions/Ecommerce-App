@@ -3,13 +3,13 @@ import * as CounterActions from "../actions/counter.action"
 import { count } from "console";
 
 
-export interface ICounterState {
+export interface CounterState {
     count: number;
     double: number;
 }
 
 
-export const initalCounterState: ICounterState = {
+export const initalCounterState: CounterState = {
     count: 0,
     double: 0
 }

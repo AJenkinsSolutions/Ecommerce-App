@@ -1,9 +1,12 @@
-import { ICounterState } from "../reducers/counter.reducer"
+import { CounterState } from "../reducers/counter.reducer"
+import { ProductListState } from "../reducers/product-list.reducer"
 
 
 
 export interface AppState {
 
-    counter: ICounterState
+    counter: CounterState
+
+    productList: ProductListState
 
 }
