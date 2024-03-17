@@ -5,14 +5,14 @@
         <span class="text-3xl"> Error while retreiving Product list </span>
     } @else {
 
-        @for (item of (products$ | async); track $index) {
+        @for (product of (products$ | async); track $index) {
 
             <!-- This is how we feed the the child comnponents @Input() method -->
 
             <!-- Dispatched Action from child component - handleAdd() -->
             <!-- The 'Output' obj from the 'handleAdd' method will be passed into the Parent Component method responsible for handling dispatched actions -->
             <!-- The output will be of type 'event' be the child component 'emits' event using 'EventEmitter' -->
-            <app-product-list-card [item]="item" (emitItemObject)="additemToCartDispatcher($event)" ></app-product-list-card>
+            <app-product-list-card [product]="product" (emitItemObject)="additemToCartDispatcher($event)" ></app-product-list-card>
             
         }
         

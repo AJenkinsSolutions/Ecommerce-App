@@ -28,8 +28,8 @@
             
             <!-- Cart Button -->
             <div>
-                <button class="text-white">
-                  <span>Cart</span>  
+                <button class="text-white" (click)="navigateToCart()" routerLink='/cart' routerLinkActive="router-link-active" type="button">
+                  <span>Cart {{ (products$ | async)?.length}}</span>  
                 </button>
             </div>            
 

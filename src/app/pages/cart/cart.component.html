@@ -1,1 +1,94 @@
-<p>cart works!</p>
+<!-- <h1 class="text-3xl text-white">cart works!</h1>
+
+<span class="text-xl text-white">
+    Json pipe converts object into a json
+    {{cartItems$ | async | json }}
+</span>
+ -->
+ @if ((cartItems$ | async)?.length === 0) {
+    <!-- This could be a seperate component, which is only visible when required -->
+      <div class="flex flex-col max-w-3xl p-6 px-2 mx-auto space-y-4 bg-white rounded-md sm:p-10 sm:px-2">
+        <h2 class="text-3xl font-bold text-center">Your cart is Empty!</h2>
+      </div>
+      
+      }
+      @else {
+      <div class="flex flex-col max-w-3xl p-6 px-2 mx-auto space-y-4 bg-white rounded-md sm:p-10 sm:px-2">
+        <h2 class="text-3xl font-bold">Your cart</h2>
+        <ul class="flex flex-col divide-y divide-gray-200 h-[400px] overflow-y-auto">
+          @for (item of cartItems$ | async; track $index) {
+          <li class="flex flex-col py-6 sm:flex-row sm:justify-between">
+            <div class="flex w-full space-x-2 sm:space-x-4">
+              <img class="flex-shrink-0 object-contain w-20 h-20 rounded outline-none dark:border-transparent sm:h-32 sm:w-32"
+                [src]="item.image" alt="Nike Air Force 1 07 LV8" />
+              <div class="flex flex-col justify-between w-full pb-4">
+                <div class="flex justify-between w-full pb-2 space-x-2">
+                  <div class="space-y-1">
+                    <h3 class="text-lg font-semibold leading-snug sm:pr-8">
+                      {{item.title}}
+                    </h3>
+                    <p class="text-sm">Orange</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-lg font-semibold">{{item.price | currency}}</p>
+                  </div>
+                </div>
+                <div class="flex text-sm divide-x">
+                  <button type="button" (click)="remove(item.id)"
+                    class="flex items-center px-2 py-1 pl-0 space-x-2 text-red-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-trash">
+                      <path d="M3 6h18"></path>
+                      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                    </svg>
+                    <span>Remove</span>
+                  </button>
+                  <button type="button" class="flex items-center px-2 py-1 space-x-2 text-purple-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="lucide lucide-heart">
+                      <path
+                        d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z">
+                      </path>
+                    </svg>
+                    <span>Add to favorites</span>
+                  </button>
+                  <!-- Quantity Controls -->
+                  <div class="flex items-center pl-4 quantity-controls">
+                    <button (click)="decrementItemQuantity(item.id)"
+                      class="px-2 py-1 text-gray-600 bg-red-300 rounded-l decrement-button hover:bg-red-400">
+                      -
+                    </button>
+                    <input  type="text" readonly class="w-12 text-center border-t border-b quantity-input h-7"
+                      [value]="item.quantity">
+                    <button (click)="incrementItemQuantity(item.id)"
+                      class="px-2 py-1 text-gray-600 bg-green-300 rounded-r increment-button hover:bg-green-400">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          }
+        </ul>
+        <div class="space-y-1 text-right">
+          <p>
+            Total amount:<span class="font-semibold"> {{totalPrice$ | async | currency}} </span>
+          </p>
+        </div>
+        <div class="flex justify-end space-x-4">
+          <button type="button" routerLink="/products"
+            class="px-3 py-2 text-sm font-semibold text-purple-500 border border-purple-500 rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+            Back to shop
+          </button>
+          <button type="button"
+            class="px-3 py-2 text-sm font-semibold text-green-500 border border-green-500 rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+            Checkout
+          </button>
+        </div>
+      </div>
+      }
+  

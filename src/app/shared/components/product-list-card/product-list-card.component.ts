@@ -17,7 +17,7 @@ export class ProductListCardComponent {
 // <!-- Dispatched Action from child component - handleAdd() -->
 
   // Item Object Inputted from Parent component
-  @Input() item!: IProduct;
+  @Input() product!: IProduct;
 
   //Itme Object we will Outpout TO parent component
   @Output() emitItemObject  = new EventEmitter();
@@ -26,9 +26,9 @@ export class ProductListCardComponent {
 
 
   //We need to EMIT the item to the partComponent using @Output
-  addCart(item: IProduct){ 
+  addCart(product: IProduct){ 
     
-    this.emitItemObject.emit(item);
+    this.emitItemObject.emit(product);
   }
     
 
