@@ -10,6 +10,19 @@ import { Component } from '@angular/core';
 export class ProductListComponent {
 
 
+  //Inject service to get the list of product
+
+  //Init product array
+  
+  
+  constructor(){
+
+  }
+
+
+
+
+
 
 
 
