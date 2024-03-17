@@ -12,12 +12,12 @@ export class ProductApiService {
   baseUrl: string = 'https://fakestoreapi.com/';
   productsEndpoint: string = 'products';
 
-  products$: Observable<IProduct[]>;
+ // products$: Observable<IProduct[]>;
 
 
   constructor() {
 
-    this.products$ = this.getProducts();
+    //this.products$ = this.getProducts();
 
     // console.log("Info: Products array" + this.products$.forEach(obj => console.log(obj)) );
     

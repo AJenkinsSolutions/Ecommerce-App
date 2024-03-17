@@ -1,14 +1,26 @@
 <p>product-list works!</p>
 
 
+<div class="grid grid-cols-1 gap-5 px-2 py-2 bg-gray-500 sm:gap-5 sm:grid-cols-4">
+    
+    @if ( error | async ) {
+        <span class="text-3xl"> Error while retreiving Product list </span>
+    } @else {
 
-@if (error | async) {
+        @for (item of (products$ | async); track $index) {
 
-    <span> Error: Message {{ error | async }}</span>
+            <div class="flex bg-red-500">THIS IS WHERE OUR DUMB COMPONENT WILL GO </div>
 
-} @else {
+            
+        }
+        
+    }
 
-    <span> success </span>
-}
+    
+    
+
+
+
+</div>
 
 
