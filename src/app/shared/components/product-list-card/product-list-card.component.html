@@ -1,1 +1,29 @@
-<p>product-list-card works!</p>
+<div class="max-w-sm overflow-hidden bg-white rounded shadow-lg" >
+    <!-- propert binding -->
+    <img width="200px" height="200px"  class="block mx-auto" [src]="item.image" alt="....">
+    <div class="px-6">
+      <div class="mb-2 text-xl font-bold">{{item.title}}</div>
+      <p class="text-base text-gray-700">
+        <!-- substring lets shortern the string text -->
+       {{item.description.substring(0, 100)}}...
+      </p>
+    </div>
+
+    <div class="px-6 pt-2">
+      <span  class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{item.category}}</span>
+      <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{item.rating.rate}}</span>
+      <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{item.price | currency}}</span>
+    </div>
+
+
+    <div class="grid grid-cols-2 pt-2 pb-2">
+
+      <button  type="button" class="px-4 py-2 mx-4 font-bold text-white bg-green-500 rounded hover:bg-gray-700"> View item </button>
+      <button  type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
+      
+    </div>
+
+
+
+  </div>
+

@@ -9,11 +9,12 @@ import * as ProductListAction from '../../ngrx/actions/product-list.actions';
 import * as ProductListSelector from '../../ngrx/selectors/product-list.selector';
 import { Console } from 'console';
 import { AsyncPipe } from '@angular/common';
+import { ProductListCardComponent } from '../../shared/components/product-list-card/product-list-card.component';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, ProductListCardComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
