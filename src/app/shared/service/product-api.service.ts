@@ -19,7 +19,7 @@ export class ProductApiService {
 
     this.products$ = this.getProducts();
 
-    console.log("Info: Products array" + this.products$.forEach(obj => console.log(obj)) );
+    // console.log("Info: Products array" + this.products$.forEach(obj => console.log(obj)) );
     
    }
 
