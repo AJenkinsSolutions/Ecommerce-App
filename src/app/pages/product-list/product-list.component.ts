@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IProduct } from '../../models/product.interface';
+import { ProductApiService } from '../../shared/service/product-api.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,9 +16,14 @@ export class ProductListComponent {
   //Inject service to get the list of product
 
   //Init product array
+
+  api =  inject(ProductApiService)
+
   
   
   constructor(){
+
+   
 
   }
 
