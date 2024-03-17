@@ -8,7 +8,7 @@ export const loadProductList = createAction(
 
     // effects Actions
 export const loadProductListSuccess = createAction(
-    '[Product ListComponent] LoadProductListSuccess',
+    '[Product List Component] LoadProductListSuccess',
      props<{products: IProduct[]}>())
      
 // effects Actions
