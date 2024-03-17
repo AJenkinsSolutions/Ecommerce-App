@@ -8,33 +8,37 @@ import { Store } from '@ngrx/store';
 import * as ProductListAction from '../../ngrx/actions/product-list.actions';
 import * as ProductListSelector from '../../ngrx/selectors/product-list.selector';
 import { Console } from 'console';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-
-
-  //Inject service to get the list of product
-
-  //Init product array
-
-  api =  inject(ProductApiService)
 
   products$! : Observable<IProduct[]>;
   error!: Observable<string | null>
   
   constructor(private store: Store<AppState>){
 
+    //This line dispatcheds the LoadProduct list Action which hits the Products effect ts which hits the Api Service Object
+    //Which will either hit the success effect or the failure effect depending on the api call
+    //Finally updating the PorudctList Store / State
     this.store.dispatch(ProductListAction.loadProductList());
+    
+    
+    
+    //Select the Product List slice
     this.products$ = this.store.select(ProductListSelector.selectAllProducts)
+    
+    //Select the Error Slice
     this.error = this.store.select(ProductListSelector.selectAllProductsListError)
     
     console.log("debug"+this.products$.pipe().forEach(obj => console.log(obj)))
+    console.log("debug error: "+ this.error)
 
    
 
