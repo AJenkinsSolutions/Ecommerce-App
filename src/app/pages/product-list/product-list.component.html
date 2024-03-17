@@ -9,8 +9,8 @@
 
         @for (item of (products$ | async); track $index) {
 
-            
-            <app-product-list-card ></app-product-list-card>
+            <!-- This is how we feed the the child comnponents @Input() method -->
+            <app-product-list-card [item]="item"></app-product-list-card>
             
         }
         
