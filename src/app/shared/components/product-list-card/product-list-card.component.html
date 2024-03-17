@@ -1,4 +1,4 @@
-<div class="max-w-sm overflow-hidden bg-white rounded shadow-lg" >
+<div class="overflow-hidden bg-white sm:rounded sm:shadow-lg sm:max-w-sm" >
     <!-- propert binding -->
     <img width="200px" height="200px"  class="block mx-auto" [src]="item.image" alt="....">
     <div class="px-6">
@@ -19,7 +19,7 @@
     <div class="grid grid-cols-2 pt-2 pb-2">
 
       <button  type="button" class="px-4 py-2 mx-4 font-bold text-white bg-green-500 rounded hover:bg-gray-700"> View item </button>
-      <button  type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
+      <button (click)="addCart(item)" type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
       
     </div>
 

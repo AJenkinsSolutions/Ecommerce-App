@@ -1,4 +1,4 @@
-import { Component, Input,ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { IProduct } from '../../../models/product.interface';
 import { CommonModule } from '@angular/common';
 
@@ -14,11 +14,25 @@ export class ProductListCardComponent {
 
 // !! Dumb Component !!! should only be responsible for displaying and dispatching actions to the parent component
 
+// <!-- Dispatched Action from child component - handleAdd() -->
 
+  // Item Object Inputted from Parent component
+  @Input() item!: IProduct;
 
-@Input() item!: IProduct;
+  //Itme Object we will Outpout TO parent component
+  @Output() emitItemObject  = new EventEmitter();
 
   constructor(){}
+
+
+  //We need to EMIT the item to the partComponent using @Output
+  addCart(item: IProduct){ 
+    
+    this.emitItemObject.emit(item);
+  }
+    
+
+
 
 
 }

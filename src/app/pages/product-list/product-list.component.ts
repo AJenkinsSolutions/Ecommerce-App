@@ -30,18 +30,23 @@ export class ProductListComponent {
     //Finally updating the PorudctList Store / State
     this.store.dispatch(ProductListAction.loadProductList());
     
-    
-    
     //Select the Product List slice
     this.products$ = this.store.select(ProductListSelector.selectAllProducts)
     
     //Select the Error Slice
     this.error = this.store.select(ProductListSelector.selectAllProductsListError)
     
-    console.log("debug"+this.products$.pipe().forEach(obj => console.log(obj)))
-    console.log("debug error: "+ this.error)
+    console.log("debug: ProductsList "+this.products$.pipe().forEach(obj => console.log(obj)))
+    console.log("debug ProductList error: "+ this.error)
 
    
+  }
+
+
+  additemToCartDispatcher(item: IProduct){
+
+    console.log("Add Item to Cart Dispather in Product List Component")
+    //Add cart store
 
   }
 

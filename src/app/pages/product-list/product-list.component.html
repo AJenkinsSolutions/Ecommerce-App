@@ -1,7 +1,5 @@
-<p>product-list works!</p>
 
-
-<div class="grid grid-cols-1 gap-5 px-2 py-2 bg-gray-500 sm:gap-5 sm:grid-cols-4">
+<div class="grid grid-cols-1 gap-5 px-2 py-4 bg-gray-500 sm:py-2 sm:px-2 sm:gap-5 sm:grid-cols-4">
     
     @if ( error | async ) {
         <span class="text-3xl"> Error while retreiving Product list </span>
@@ -10,17 +8,17 @@
         @for (item of (products$ | async); track $index) {
 
             <!-- This is how we feed the the child comnponents @Input() method -->
-            <app-product-list-card [item]="item"></app-product-list-card>
+
+            <!-- Dispatched Action from child component - handleAdd() -->
+            <!-- The 'Output' obj from the 'handleAdd' method will be passed into the Parent Component method responsible for handling dispatched actions -->
+            <!-- The output will be of type 'event' be the child component 'emits' event using 'EventEmitter' -->
+            <app-product-list-card [item]="item" (emitItemObject)="additemToCartDispatcher($event)" ></app-product-list-card>
             
         }
         
     }
 
     
-    
-
-
-
 </div>
 
 
