@@ -12,6 +12,7 @@ import { productListReducer } from './ngrx/reducers/product-list.reducer';
 import { provideEffects } from '@ngrx/effects';
 import { ProductListEffect } from './ngrx/effects/product-list.effect';
 import { cartReducer } from './ngrx/reducers/cart.reducer';
+import { CartEffect } from './ngrx/effects/cart.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideStoreDevtools({maxAge: 25}),
     provideState('counter', counterReducer),
     provideState('cart', cartReducer),
+    provideEffects(CartEffect),
     provideState('productList', productListReducer),
     provideEffects(ProductListEffect)
     
