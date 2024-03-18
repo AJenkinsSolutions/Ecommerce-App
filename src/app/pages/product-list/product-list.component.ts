@@ -40,19 +40,13 @@ export class ProductListComponent {
     
     console.log("debug: ProductsList "+this.products$.pipe().forEach(obj => console.log(obj)))
     console.log("debug ProductList error: "+ this.error)
-
-    
-
-   
-  }
+    }
 
 
   additemToCartDispatcher(product: IProduct): void{
 
-    console.log("Add Item to Cart Dispather in Product List Component")
-    //Add cart store
-
-    this.store.dispatch(addToCart({ product }));
+    console.log("info: Add Item to Cart Dispather in Product List Component")
+        this.store.dispatch(CartActions.attemptToAddProductToCart({ product }));
 
   }
 
