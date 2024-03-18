@@ -4,7 +4,7 @@ import { createAction, props } from "@ngrx/store";
 import { IProduct } from "../../models/product.interface";
 
 
-
+export const attemptToAddProductToCart = createAction('[Cart Component] AttemptToAddProductToCart', props<{product: IProduct}>());
 
 export const addToCart = createAction('[Cart Component] AddToCart', props<{product: IProduct}>());
 
