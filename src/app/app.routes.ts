@@ -4,7 +4,7 @@ import { CounterComponent } from './pages/counter/counter.component';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'product-list',
+        redirectTo: 'products',
         pathMatch: 'full'
     },
     {

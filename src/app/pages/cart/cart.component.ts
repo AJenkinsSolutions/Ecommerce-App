@@ -6,6 +6,7 @@ import * as CartActions from '../../ngrx/actions/cart.action';
 import { AppState } from '../../ngrx/state/app.state';
 import { Store } from '@ngrx/store';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -24,7 +25,7 @@ export class CartComponent {
   totalPrice$ = this.store.select(selectTotalPrice);
 
 
-  constructor(private store: Store<AppState>){}
+  constructor(private store: Store<AppState>, private router: Router){}
 
 
   remove(productId: number){
@@ -44,6 +45,23 @@ export class CartComponent {
 
   }
 
+  //TODO: DRY 
+  //REFACTOR REPATED CODE
+  navigateToProducts(){
+
+    this.router.navigate(['/products']);
+    console.log("Navigate to products");
+
+  }
+
+  //TODO: DRY 
+  //REFACTPOR REPEATED CODE
+  navigateToCheckout(){
+
+    this.router.navigate(['/checkout']);
+    console.log("Navigate to checkout");
+
+  }
 
 
 

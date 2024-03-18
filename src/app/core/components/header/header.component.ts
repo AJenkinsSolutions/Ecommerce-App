@@ -54,5 +54,11 @@ export class HeaderComponent {
 
   }
 
+  navigateToProducts(){
+
+    this.router.navigate(['/products']);
+    console.log("Navigate to cart");
+
+  }
 
 }
