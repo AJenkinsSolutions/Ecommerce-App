@@ -12,6 +12,7 @@ import { AsyncPipe } from '@angular/common';
 import { ProductListCardComponent } from '../../shared/components/product-list-card/product-list-card.component';
 import * as CartActions from '../../ngrx/actions/cart.action';
 import { addToCart } from '../../ngrx/actions/cart.action';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -49,12 +50,5 @@ export class ProductListComponent {
         this.store.dispatch(CartActions.attemptToAddProductToCart({ product }));
 
   }
-
-
-
-
-
-
-
 
 }

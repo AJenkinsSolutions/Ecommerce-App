@@ -18,8 +18,6 @@ import { Router } from '@angular/router';
 })
 export class CartComponent {
 
-
-
   //Now we can use this data in the cart HTML
   cartItems$: Observable<IProduct[]> = this.store.select(seletctCartProducts)
   totalPrice$ = this.store.select(selectTotalPrice);
