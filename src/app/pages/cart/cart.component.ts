@@ -42,9 +42,9 @@ export class CartComponent {
   decrementItemQuantity(productId : number){
     console.log("info : decrementItemQuantity dispacther in cart Component" );
 
-    //TODO: If item qauntity is less than 1 dispatch remove action
+    //TODO: Add Effect: If item qauntity is less than 1 dispatch remove action
     
-    this.store.dispatch(CartActions.decrementProductCount({productId}))
+    this.store.dispatch(CartActions.attemptToDecrementProductCount({productId}))
 
   }
 
