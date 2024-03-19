@@ -42,13 +42,14 @@ export class CartComponent {
   decrementItemQuantity(productId : number){
     console.log("info : decrementItemQuantity dispacther in cart Component" );
 
-    //TODO: Add Effect: If item qauntity is less than 1 dispatch remove action
-    
     this.store.dispatch(CartActions.attemptToDecrementProductCount({productId}))
 
   }
 
-  //TODO: DRY 
+
+
+
+  //TODO: DRY Maybe move all navigation code to nagivation service 
   //REFACTOR REPATED CODE
   navigateToProducts(){
 
