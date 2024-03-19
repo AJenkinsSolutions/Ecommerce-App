@@ -2,14 +2,14 @@ import { createAction, props } from "@ngrx/store";
 import { IProduct } from "../../models/product.interface";
 
 export const loadProduct = createAction(
-    '[Product Details Component] LoadProduct');
+    '[Product Details Component] LoadProduct', props<{productId: string}>());
 
 // effects Actions
-export const loadProductListSuccess = createAction(
+export const loadProductSuccess = createAction(
     '[Product Details Component] LoadProductSuccess',
-     props<{products: IProduct}>())
+     props<{product: IProduct}>())
      
 // effects Actions
-export const loadProductListFailure = createAction(
+export const loadProductFailure = createAction(
     '[Product Details Component] LoadProductFailure'
     , props<{errorMessage: string}>());

@@ -40,4 +40,12 @@ export class ProductApiService {
 
   }
 
+
+  getProductById(productId: string){
+
+    return this.http.get<IProduct>(this.baseUrl + this.productsEndpoint + '/' + productId)
+    
+
+  }
+
 }
