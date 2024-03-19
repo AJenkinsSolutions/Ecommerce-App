@@ -13,6 +13,8 @@ import { provideEffects } from '@ngrx/effects';
 import { ProductListEffect } from './ngrx/effects/product-list.effect';
 import { cartReducer } from './ngrx/reducers/cart.reducer';
 import { CartEffect } from './ngrx/effects/cart.effect';
+import { productDetailsReducer } from './ngrx/reducers/product-details-reducer';
+import { ProductDetailsEffect } from './ngrx/effects/product-details.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,7 +29,9 @@ export const appConfig: ApplicationConfig = {
     provideState('cart', cartReducer),
     provideEffects(CartEffect),
     provideState('productList', productListReducer),
-    provideEffects(ProductListEffect)
+    provideEffects(ProductListEffect),
+    provideState('productDetails', productDetailsReducer),
+    provideEffects(ProductDetailsEffect)
     
   ]
 };
