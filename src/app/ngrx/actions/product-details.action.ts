@@ -13,3 +13,7 @@ export const loadProductSuccess = createAction(
 export const loadProductFailure = createAction(
     '[Product Details Component] LoadProductFailure'
     , props<{errorMessage: string}>());
+
+export const resetProduct = createAction(
+    '[Product Details Component] ResetProduct'
+)
