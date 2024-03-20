@@ -1,1 +1,30 @@
-<p>product-details works!</p>
+
+<div class="container p-4 mx-auto">
+    <!-- Conditional rendering with @if, @else for loading and error states -->
+    @if (product$ | async; as product) {
+      <div class="max-w-sm rounded shadow-lg">
+        <img width="200px" height="200px"class="" [src]="product.image " alt="{{ product.title }}">
+        <div class="px-6 py-4">
+          <div class="mb-2 text-xl font-bold">{{ product.title }}</div>
+          <p class="text-base text-gray-700">
+            {{ product.description }}
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.category }}</span>
+          <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.price | currency }}</span>
+          <!-- <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.rating.rate}}</span> -->
+        </div>
+        <button type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
+      </div>
+    } @else if (error | async){
+      <div class="text-center">
+        <span class="text-3xl"> Error while retreiving Product list </span>
+      </div>
+    } @else {
+        <div class="text-center">
+            <p>Loading product details...</p>
+          </div>
+    }
+</div>
+  
