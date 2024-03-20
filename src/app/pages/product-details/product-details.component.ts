@@ -10,6 +10,8 @@ import { IProduct } from '../../models/product.interface';
 import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 
+import * as CartActions from '../../ngrx/actions/cart.action';
+
 @Component({
   selector: 'app-product-details',
   standalone: true,
@@ -21,13 +23,14 @@ export class ProductDetailsComponent implements OnInit, OnDestroy{
   
   product$! : Observable<IProduct | null>; 
   error!: Observable<string | null>;
+  
 
   constructor(private activeRoute: ActivatedRoute, private store: Store<AppState>){
 
      this.product$ = this.store.select(ProductDetailsSelector.selectProductDetails)
      this.error = this.store.select(ProductDetailsSelector.selectProductDetailsError)
     
-    }
+  }
  
 
 
@@ -41,7 +44,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy{
       this.store.dispatch(ProductDetailsActions.loadProduct({ productId: id }));
       
     }
-   
+
   }
 
   ngOnDestroy(): void {
@@ -50,6 +53,15 @@ export class ProductDetailsComponent implements OnInit, OnDestroy{
     
   }
 
+
+  
+
+  additemToCartDispatcher(product: IProduct): void{
+
+    console.log("info: Add Item to Cart Dispather in Product List Component")
+    this.store.dispatch(CartActions.attemptToAddProductToCart({product}));
+
+  }
 
 
 

@@ -15,7 +15,7 @@
           <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.price | currency }}</span>
           <!-- <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.rating.rate}}</span> -->
         </div>
-        <button type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
+        <button (click)="additemToCartDispatcher(product)" type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
       </div>
     } @else if (error | async){
       <div class="text-center">
