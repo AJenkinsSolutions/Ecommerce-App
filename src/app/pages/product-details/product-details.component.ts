@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppState } from '../../ngrx/state/app.state';
@@ -8,51 +8,46 @@ import * as ProductDetailsActions from '../../ngrx/actions/product-details.actio
 import * as ProductDetailsSelector from '../../ngrx/selectors/product-details.selector';
 import { IProduct } from '../../models/product.interface';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, CommonModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
-export class ProductDetailsComponent implements OnInit{
+export class ProductDetailsComponent implements OnInit, OnDestroy{
   
-  
+  product$! : Observable<IProduct | null>; 
+  error!: Observable<string | null>;
 
   constructor(private activeRoute: ActivatedRoute, private store: Store<AppState>){
 
-     
-
-      
+     this.product$ = this.store.select(ProductDetailsSelector.selectProductDetails)
+     this.error = this.store.select(ProductDetailsSelector.selectProductDetailsError)
+    
     }
+ 
 
 
   ngOnInit(): void {
-     //TODO: figure where the best place for this logic is 
+     
     const id = this.activeRoute.snapshot.paramMap.get('productId');
 
     if(id){
 
       console.log('info: Product Id in Product Details Page: ( ' + id+ ' )');
-
       this.store.dispatch(ProductDetailsActions.loadProduct({ productId: id }));
-
-      const product$ = this.store.select(ProductDetailsSelector.selectProductDetails)
-      const error$ = this.store.select(ProductDetailsSelector.selectProductDetailsError)
-
-      console.log("debug: Product " + product$.pipe().forEach(obj => console.log(obj)))
-      console.log("debug: error " + error$.pipe().forEach(obj => console.log(obj)))
+      
     }
-
    
+  }
+
+  ngOnDestroy(): void {
+
+    this.store.dispatch(ProductDetailsActions.resetProduct())
     
-
-   
-
-
-   
   }
 
 
