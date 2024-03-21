@@ -23,7 +23,7 @@ export class ProductListEffect {
             switchMap(()=>
             this.apiService.getProducts().pipe(
                 map((res) => ProductListActions.loadProductListSuccess({products: res})),
-                catchError((error: {message: string}) => of(ProductListActions.loadProductListFailure({errorMessage: 'Failed to load Products', }))
+                catchError((error: {message: string}) => of(ProductListActions.loadProductListFailure({errorMessage: 'Failed to load Products: ' + error, }))
                 
                 )
                 
