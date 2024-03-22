@@ -22,5 +22,9 @@ export const routes: Routes = [
     {
         path: 'products/:productId',
         loadComponent: () => import('./pages/product-details/product-details.component').then(a => a.ProductDetailsComponent)
+    },
+    {
+        path: 'checkout',
+        loadComponent: () => import('./pages/checkout/checkout.component').then(a => a.CheckoutComponent)
     }
 ];
