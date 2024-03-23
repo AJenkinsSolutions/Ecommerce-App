@@ -8,14 +8,10 @@ export class FormSignal {
 }
 
 interface UserState {
-    name: string;
-    age: number;
     form: IShippingInform;
   }
   
   const initialState: UserState = {
-    name: 'alex',
-    age: 0,
     form: null
   };
   
@@ -26,8 +22,8 @@ interface UserState {
 
     withState(initialState),
     withMethods((store) => ({
-      updateUser(name: string, age: number, form: IShippingInform){
-        patchState(store, {name, age, form});
+      updateUser(form: IShippingInform){
+        patchState(store, {form});
       }
 
     }))
