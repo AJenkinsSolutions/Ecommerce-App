@@ -22,7 +22,7 @@ export class OrderFormComponent implements OnInit{
 
   userStore = inject(UserStore);
 
-  orderForm: FormGroup = new FormGroup({});
+  orderFormGroup: FormGroup = new FormGroup({});
 
   constructor(private formBuilder: FormBuilder, private store: Store<AppState>, private router: Router){
 
@@ -37,13 +37,12 @@ export class OrderFormComponent implements OnInit{
   
   ngOnInit(): void {
     
-    //Create Validators
-    this.orderForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      mobile: ['', [Validators.required]],
-      city: ['', Validators.required]
+    //Create Validators for our order form
+    this.orderFormGroup = this.formBuilder.group({
+      
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      cardNumber: ['', Validators.required]
     })
 
 
@@ -53,11 +52,11 @@ export class OrderFormComponent implements OnInit{
 
   onSubmit(){
     console.log("info: order form submit hit")
-    if(this.orderForm.valid){
+
+    if(this.orderFormGroup.valid){
       console.log("form valid")
-      const completedForm: IOrderForm =  this.orderForm.value;
-      
-    
+      const completedForm: IOrderForm =  this.orderFormGroup.value;
+
     }
   }
 

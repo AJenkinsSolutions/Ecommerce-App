@@ -1,29 +1,29 @@
 <p>shipping-form works!</p>
 
 
-<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="orderFormGroup" (ngSubmit)="onSubmit()">
 
-    <h3 class="my-2">Please Enter Shipping Information</h3>
+    <h3 class="my-2 text-2xl">Please Enter Shipping Information</h3>
     <div class="mb-3 row">
         <div class="col">
             <div>
-                <label class="form-label">First Name</label>
-                <input class="form-control" type="string" formControlName="firstName">
+                <label class="form-label">Name</label>
+                <input class="form-control" type="string" formControlName="name">
         
                 <!-- Validation Message -->
-                <small class="text-red-500" *ngIf="orderForm.get('firstName')?.invalid && orderForm.get('firstName')?.touched">
-                    First Name is required
+                <small class="text-red-500" *ngIf="orderFormGroup.get('name')?.invalid && orderFormGroup.get('name')?.touched">
+                    Name is required
                 </small>
             </div>
             
         </div>
         <div class="col">
             <div>
-                <label class="form-label">Last Name</label>
-                <input class="form-control" type="string" formControlName="lastName">
+                <label class="form-label">Address</label>
+                <input class="form-control" type="string" formControlName="address">
                 <!-- Validation Message -->
-                 <small class="text-red-500" *ngIf="orderForm.get('lastName')?.invalid && orderForm.get('lastName')?.touched">
-                    Last Name Is required
+                 <small class="text-red-500" *ngIf="orderFormGroup.get('address')?.invalid && orderFormGroup.get('address')?.touched">
+                    Address Is required
                 </small>
             </div>
         
@@ -34,49 +34,22 @@
     <div class="mb-3 row">
         <div class="col">
             <div>
-                <label class="form-label">Email</label>
-                <input class="form-control" type="email" formControlName="email">
-             
-                <small class="text-red-500" *ngIf="orderForm.get('email')?.invalid && orderForm.get('email')?.touched && orderForm.controls['email']?.errors">
-                    must use valid email Address 
-                </small>
-                <small class="text-red-500" *ngIf="orderForm.get('email')?.invalid && orderForm.get('email')?.touched">
-                   Email is required 
+                <label class="form-label">Card Number </label>
+                <input class="form-control" type="number" formControlName="cardNumber">
+                
+                <small class="text-red-500" *ngIf="orderFormGroup.get('cardNumber')?.invalid && orderFormGroup.get('cardNumber')?.touched">
+                   Card Number is Required
                 </small>
             </div>
 
-        </div>
-
-        <div class="col">
-
-            <div>
-                <label class="form-label">Mobile </label>
-                <input class="form-control" type="text" formControlName="mobile">
-                <!-- Validation Message -->
-                <small class="text-red-500" *ngIf="orderForm.get('mobile')?.invalid && orderForm.get('mobile')?.touched">
-                    Mobile is required
-                </small>
-                 
-            </div>
 
         </div>
+
     </div>
 
-    <div class="mb-3 row">
-        <div class="col-md-2">
-            <div>
-                <label class="form-label">City</label>
-                <input class="form-control" type="text" formControlName="city">
-                <!-- Validation Message -->
-                <small class="text-red-500" *ngIf="orderForm.get('city')?.invalid && orderForm.get('city')?.touched">
-                    City is required
-                </small>
-            </div>
-
-        </div>
-    </div>
+        
     
 
 <!-- disallow submit btn if form is invalid -->
- <button class="p-2 font-semibold bg-yellow-200 shadow rounded-xl disabled:cursor-not-allowed" type="submit" [disabled]="orderForm.invalid">Submit Order</button>
+ <button class="p-2 font-semibold bg-yellow-200 shadow rounded-xl disabled:cursor-not-allowed" type="submit" [disabled]="orderFormGroup.invalid">Submit Order</button>
 </form>
