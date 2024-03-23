@@ -11,7 +11,7 @@ import { IProduct } from "./product.interface"
 
 // additonal fields for order status 
 
-export interface OrderSummary {
+export interface IOrderSummary {
 
     id: number
     status: string

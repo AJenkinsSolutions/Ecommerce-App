@@ -6,6 +6,9 @@ import * as CartSelector from '../../ngrx/selectors/cart.selector';
 import { Observable } from 'rxjs';
 import { IProduct } from '../../models/product.interface';
 import { FormStore } from '../../signals/form.signal';
+import * as OrderActions from '../../ngrx/actions/order.action';
+import { IOrderSummary } from '../../models/order-summary-interface';
+
 @Component({
   selector: 'app-order-summary',
   standalone: true,
@@ -37,6 +40,20 @@ export class OrderSummaryComponent implements OnInit{
   this.userName = this.formStore.form().name
   this.address = this.formStore.form().address
   this.cardNumber = this.formStore.form().cardNumber
+  }
+
+
+
+
+
+
+  confirmOrder(){
+
+    //todo: Create Iorder Object for persistence
+
+
+    this.store.dispatch(OrderActions.createOrder({}))
+
   }
   
 
