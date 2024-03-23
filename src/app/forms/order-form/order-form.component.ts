@@ -58,19 +58,20 @@ export class OrderFormComponent implements OnInit{
     console.log("info: Enterd into Order Form Submit")
 
     if(this.orderFormGroup.valid){
-
       console.log("info: Form is valid")
 
+      //Map to Interface
       const completedForm: IShippingInform =  this.orderFormGroup.value;
       console.log(completedForm)
+      
+      //Update Signal Store
+      this.userStore.updateUser(completedForm)
+      
 
-      this.userStore.updateUser('hannah', 9, completedForm)
-      
-      
+      //Navigate
       this.navigateToOrderSummary()
 
-      
-
+    
     }
   }
 
