@@ -10,5 +10,5 @@ export const createOrderSuccess = createAction(
 )
 
 export const createOrderFailure = createAction(
-    '[Order Summary Component] CreateOrderFailure', props<{orderSummary: IOrderSummary}>()
+    '[Order Summary Component] CreateOrderFailure', props<{errorMessage: string}>()
 )
