@@ -8,7 +8,7 @@ import { Route, Router } from '@angular/router';
 
 
 import { signalStore, withState } from '@ngrx/signals';
-import { FormSignal, UserStore } from '../../signals/form.signal';
+import { FormSignal, FormStore } from '../../signals/form.signal';
 import { IShippingInform } from '../../models/order-summary-interface';
 
 
@@ -24,7 +24,7 @@ import { IShippingInform } from '../../models/order-summary-interface';
 export class OrderFormComponent implements OnInit{
 
   
-  userStore = inject(UserStore);
+  userStore = inject(FormStore);
 
   orderFormGroup: FormGroup = new FormGroup({});
 

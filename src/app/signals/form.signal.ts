@@ -7,17 +7,17 @@ export class FormSignal {
     name = signal('');
 }
 
-interface UserState {
+interface FormState {
     form: IShippingInform;
   }
   
-  const initialState: UserState = {
+  const initialState: FormState = {
     form: null
   };
   
   
   
-  export const UserStore = signalStore(
+  export const FormStore = signalStore(
     {providedIn: 'root'},
 
     withState(initialState),
