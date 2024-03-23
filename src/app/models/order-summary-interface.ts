@@ -26,5 +26,5 @@ export interface OrderSummary {
 export interface IShippingInform {
     name: string
     address: string
-    email: string
+    cardNumber: string
 }
