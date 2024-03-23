@@ -35,7 +35,7 @@
         <div class="col">
             <div>
                 <label class="form-label">Card Number </label>
-                <input class="form-control" type="number" formControlName="cardNumber">
+                <input class="form-control" type="string" formControlName="cardNumber">
                 
                 <small class="text-red-500" *ngIf="orderFormGroup.get('cardNumber')?.invalid && orderFormGroup.get('cardNumber')?.touched">
                    Card Number is Required

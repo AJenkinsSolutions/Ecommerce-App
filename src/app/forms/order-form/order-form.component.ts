@@ -5,10 +5,11 @@ import { AppState } from '../../ngrx/state/app.state';
 
 import { State, Store } from '@ngrx/store';
 import { Route, Router } from '@angular/router';
-import { IOrderForm } from '../../models/order-form.interface';
+
 
 import { signalStore, withState } from '@ngrx/signals';
 import { FormSignal, UserStore } from '../../signals/form.signal';
+import { IShippingInform } from '../../models/order-summary-interface';
 
 @Component({
   selector: 'app-order-form',
@@ -20,14 +21,14 @@ import { FormSignal, UserStore } from '../../signals/form.signal';
 })
 export class OrderFormComponent implements OnInit{
 
-  userStore = inject(UserStore);
+  // userStore = inject(UserStore);
 
   orderFormGroup: FormGroup = new FormGroup({});
 
   constructor(private formBuilder: FormBuilder, private store: Store<AppState>, private router: Router){
 
-    console.log(this.userStore.name());
-    console.log(this.userStore.age());
+    // console.log(this.userStore.name());
+    // console.log(this.userStore.age());
     
     
   }
@@ -51,11 +52,16 @@ export class OrderFormComponent implements OnInit{
 
 
   onSubmit(){
-    console.log("info: order form submit hit")
+    console.log("info: Enterd into Order Form Submit")
 
     if(this.orderFormGroup.valid){
-      console.log("form valid")
-      const completedForm: IOrderForm =  this.orderFormGroup.value;
+
+      console.log("info: Form is valid")
+
+      const completedForm: IShippingInform =  this.orderFormGroup.value;
+
+
+      console.log(completedForm)
 
     }
   }

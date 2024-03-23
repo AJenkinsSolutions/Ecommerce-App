@@ -14,14 +14,14 @@ export interface OrderSummary {
     id: number
     totalPrice: number
     status: string
-    shippingInformation: IShippingInfor
+    shippingInformation: IShippingInform
 
 }
 
 
 
 //Populated from the form
-export interface IShippingInfor {
+export interface IShippingInform {
     name: string
     address: string
     email: string
