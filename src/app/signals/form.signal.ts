@@ -8,8 +8,6 @@ import { signalStore, withState} from "@ngrx/signals";
 export class FormSignal {
  
     name = signal('');
-
-
 }
 
 interface UserState {
