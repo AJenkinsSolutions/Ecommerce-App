@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShippingFormComponent } from './shipping-form.component';
+import { OrderSummaryComponent } from './order-summary.component';
 
-describe('ShippingFormComponent', () => {
-  let component: ShippingFormComponent;
-  let fixture: ComponentFixture<ShippingFormComponent>;
+describe('OrderSummaryComponent', () => {
+  let component: OrderSummaryComponent;
+  let fixture: ComponentFixture<OrderSummaryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShippingFormComponent]
+      imports: [OrderSummaryComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ShippingFormComponent);
+    fixture = TestBed.createComponent(OrderSummaryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

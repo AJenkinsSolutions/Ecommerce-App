@@ -1,7 +1,7 @@
 <p>shipping-form works!</p>
 
 
-<form [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
 
     <h3 class="my-2">Please Enter Shipping Information</h3>
     <div class="mb-3 row">
@@ -11,7 +11,7 @@
                 <input class="form-control" type="string" formControlName="firstName">
         
                 <!-- Validation Message -->
-                <small class="text-red-500" *ngIf="shippingForm.get('firstName')?.invalid && shippingForm.get('firstName')?.touched">
+                <small class="text-red-500" *ngIf="orderForm.get('firstName')?.invalid && orderForm.get('firstName')?.touched">
                     First Name is required
                 </small>
             </div>
@@ -22,7 +22,7 @@
                 <label class="form-label">Last Name</label>
                 <input class="form-control" type="string" formControlName="lastName">
                 <!-- Validation Message -->
-                 <small class="text-red-500" *ngIf="shippingForm.get('lastName')?.invalid && shippingForm.get('lastName')?.touched">
+                 <small class="text-red-500" *ngIf="orderForm.get('lastName')?.invalid && orderForm.get('lastName')?.touched">
                     Last Name Is required
                 </small>
             </div>
@@ -37,10 +37,10 @@
                 <label class="form-label">Email</label>
                 <input class="form-control" type="email" formControlName="email">
              
-                <small class="text-red-500" *ngIf="shippingForm.get('email')?.invalid && shippingForm.get('email')?.touched && shippingForm.controls['email']?.errors">
+                <small class="text-red-500" *ngIf="orderForm.get('email')?.invalid && orderForm.get('email')?.touched && orderForm.controls['email']?.errors">
                     must use valid email Address 
                 </small>
-                <small class="text-red-500" *ngIf="shippingForm.get('email')?.invalid && shippingForm.get('email')?.touched">
+                <small class="text-red-500" *ngIf="orderForm.get('email')?.invalid && orderForm.get('email')?.touched">
                    Email is required 
                 </small>
             </div>
@@ -53,7 +53,7 @@
                 <label class="form-label">Mobile </label>
                 <input class="form-control" type="text" formControlName="mobile">
                 <!-- Validation Message -->
-                <small class="text-red-500" *ngIf="shippingForm.get('mobile')?.invalid && shippingForm.get('mobile')?.touched">
+                <small class="text-red-500" *ngIf="orderForm.get('mobile')?.invalid && orderForm.get('mobile')?.touched">
                     Mobile is required
                 </small>
                  
@@ -68,7 +68,7 @@
                 <label class="form-label">City</label>
                 <input class="form-control" type="text" formControlName="city">
                 <!-- Validation Message -->
-                <small class="text-red-500" *ngIf="shippingForm.get('city')?.invalid && shippingForm.get('city')?.touched">
+                <small class="text-red-500" *ngIf="orderForm.get('city')?.invalid && orderForm.get('city')?.touched">
                     City is required
                 </small>
             </div>
@@ -78,5 +78,5 @@
     
 
 <!-- disallow submit btn if form is invalid -->
- <button class="p-2 font-semibold bg-yellow-200 shadow rounded-xl disabled:cursor-not-allowed" type="submit" [disabled]="shippingForm.invalid">Submit Form</button>
+ <button class="p-2 font-semibold bg-yellow-200 shadow rounded-xl disabled:cursor-not-allowed" type="submit" [disabled]="orderForm.invalid">Submit Order</button>
 </form>
