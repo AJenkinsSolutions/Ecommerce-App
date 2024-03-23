@@ -15,6 +15,8 @@ import { cartReducer } from './ngrx/reducers/cart.reducer';
 import { CartEffect } from './ngrx/effects/cart.effect';
 import { productDetailsReducer } from './ngrx/reducers/product-details-reducer';
 import { ProductDetailsEffect } from './ngrx/effects/product-details.effect';
+import { orderSummaryReducer } from './ngrx/reducers/order.reducer';
+import { OrderSummaryEffects } from './ngrx/effects/order.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -31,7 +33,9 @@ export const appConfig: ApplicationConfig = {
     provideState('productList', productListReducer),
     provideEffects(ProductListEffect),
     provideState('productDetails', productDetailsReducer),
-    provideEffects(ProductDetailsEffect)
+    provideEffects(ProductDetailsEffect),
+    provideState('order', orderSummaryReducer),
+    provideEffects(OrderSummaryEffects)
     
   ]
 };
