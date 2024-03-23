@@ -44,21 +44,11 @@ export class OrderFormComponent implements OnInit{
     console.log("info: order form submit hit")
     if(this.orderForm.valid){
       console.log("form valid")
-
       const completedForm: IOrderForm =  this.orderForm.value;
-      console.log("form" + completedForm.firstName)
-      // this.navigateToOrder()
-      
+  
+    
     }
   }
-
-
-  // navigateToOrder(){
-
-  //   this.router.navigate(['/order']);
-  //   console.log("Navigate to checkout");
-
-  // }
 
 
 }
