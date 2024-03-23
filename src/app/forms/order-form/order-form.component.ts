@@ -59,11 +59,19 @@ export class OrderFormComponent implements OnInit{
       console.log("info: Form is valid")
 
       const completedForm: IShippingInform =  this.orderFormGroup.value;
-
-
       console.log(completedForm)
+      
+      this.navigateToOrderSummary()
+
+      
 
     }
+  }
+
+
+  navigateToOrderSummary(){
+
+    this.router.navigate(['/order']);
   }
 
 
