@@ -52,7 +52,7 @@ export class OrderSummaryComponent implements OnInit{
     //todo: Create Iorder Object for persistence
 
 
-    this.store.dispatch(OrderActions.createOrder({}))
+    
 
   }
   
