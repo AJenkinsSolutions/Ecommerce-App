@@ -1,11 +1,14 @@
+<!-- Global Container -->
 <div class="relative min-h-screen bg-gray-100 dark:bg-gray-800">
     <!-- Navbar  -->
     <app-header/>
+    
+    <!-- Side Nav -->
     <mat-sidenav-container class="dark:bg-gray-800">
         
-        <!-- Side Nav -->
+        
         <!-- #sidenav is the DOM child component we are accessing in our App Component -->
-        <!-- 1.on a screen change(screenChange), compute the screen size (computeSize($event)) -->
+        <!-- 1. on a screen change(screenChange), compute the screen size (computeSize($event)) -->
         <!-- 2. side nav mode : retreive the current screen size from the screen size signal, change the mode of the sidenav based on signal value -->
         <!-- 3. opened: retreive the sidebarsignal true | false, and have the side bar open depending on that value, set to false initially -->
         <!-- Reactivity, Changes 'mode' depending on screen size -->
