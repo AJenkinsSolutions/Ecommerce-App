@@ -22,9 +22,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
   
-    # - name: Build
-    #   run: ng build
+    - name: Build
+      run: ng build
   
-    # - name: Run tests
-    #   run: ng test
+    - name: Run tests
+      run: ng test
         # Note: Update test command for CI compatibility once implemented
