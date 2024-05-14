@@ -1,18 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from '../../models/product.interface';
-import { ProductApiService } from '../../shared/service/product-api.service';
-import { AppState } from '../../ngrx/state/app.state';
+
 import { Store } from '@ngrx/store';
 
 import * as ProductListAction from '../../ngrx/actions/product-list.actions';
 import * as ProductListSelector from '../../ngrx/selectors/product-list.selector';
-import { Console } from 'console';
+
 import { AsyncPipe } from '@angular/common';
 import { ProductListCardComponent } from '../../shared/components/product-list-card/product-list-card.component';
 import * as CartActions from '../../ngrx/actions/cart.action';
-import { addToCart } from '../../ngrx/actions/cart.action';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
