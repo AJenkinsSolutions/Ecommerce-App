@@ -15,6 +15,8 @@ jobs:
   #Test
   test:
     runs-on: ubuntu-latest
+    outputs:
+      script-file: ${{steps.publish}}
     steps: 
     - name: Get Code
       uses: actions/checkout@v3
@@ -39,7 +41,7 @@ jobs:
 
   # Build
   build:
-
+    needs: test
     # Runner
     runs-on: ubuntu-latest
     steps:
@@ -55,15 +57,6 @@ jobs:
         node-version: '18.16.0'  # Specify Node.js version
     - name: Install dependencies
       run: npm ci 
-
-      # Dependency CACHE
-    - name: cache Dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.npm
-        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-    - name: Install dependencies
-      run: npm ci
    
       # INSTALL ANGUALR
     - name: Install Angular CLI
