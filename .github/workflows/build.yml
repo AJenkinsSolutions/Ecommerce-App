@@ -22,8 +22,8 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     # Test step  
-    - name: test
-      run: echo "testing..."
+    - name: Lint code 
+      run: npm lint
 
 
   # Build
