@@ -15,8 +15,6 @@ jobs:
   #Test
   test:
     runs-on: ubuntu-latest
-    outputs:
-      script-file: ${{steps.publish}}
     steps: 
     - name: Get Code
       uses: actions/checkout@v3
@@ -34,9 +32,25 @@ jobs:
 
     # Test Code
     - name: Test Code Step
-      run: ng test --watch=false --browsers=ChromeHeadless
+      run: ng test --watch=false --browsers=ChromeHeadless > test-results.txt
     
+    # Upload results 
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test results
+        path: test-results.txt
+    
+    # Set Output
+    - name: set results output
+      id: set-test-results-output
+      run: echo "::set-output name=test_results_file::test-results.txt" 
+    
+    outputs:
+      test_results_file: ${{ steps.set-test-results-output.outputs.test_results_file }}
+  
 
+    
 
 
   # Build
