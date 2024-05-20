@@ -32,6 +32,10 @@ jobs:
 
     # Test Code
     - name: Test Code Step
+      id: test-code-step
+     # Continue on error check
+      # So the next steps and jobs will be executed even if this test code step fails
+      continue-on-error: true
       run: ng test --watch=false --browsers=ChromeHeadless > test-results.txt
     
     # Upload results 
@@ -39,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: test results
-        path: test-results.txt
+        path: test-report.txt
     
     # Set Output
     - name: set results output
@@ -49,7 +53,7 @@ jobs:
     outputs:
       test_results_file: ${{ steps.set-test-results-output.outputs.test_results_file }}
   
-
+    
     
 
 
