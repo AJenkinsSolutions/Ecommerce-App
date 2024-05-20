@@ -34,7 +34,7 @@ jobs:
 
     # Test Code
     - name: Test Code Step
-      run: echo "Running tests......."
+      run: ng test --watch=false --browsers=ChromeHeadless
     
 
 
