@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from '../../models/product.interface';
-
+\
 import { Store } from '@ngrx/store';
 
 import * as ProductListAction from '../../ngrx/actions/product-list.actions';

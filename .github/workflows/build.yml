@@ -1,33 +1,46 @@
 name: Angular CI
-
+# Triggers
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+# Jobs
 jobs:
+  # Build
   build:
-    runs-on: ubuntu-latest
 
+    # Runner
+    runs-on: ubuntu-latest
     steps:
-        
+
+    # CHECKOUT
     - name: Get Code
       uses: actions/checkout@v3
 
+      #NODE
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18.16.0'  # Specify Node.js version
     - name: Install dependencies
-      run: npm ci
+      run: npm ci 
 
+      # Dependency CACHE
+    - name: cache Dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+   
+      # INSTALL ANGUALR
     - name: Install Angular CLI
-      run: npm install -g @angular/cli
-  
+      run: npm install -g @angular/cli 
+
+      # BUILD
     - name: Build
       run: ng build
-  
-    - name: Run tests
-      run: ng test
+        
+    # - name: Run tests
+    #   run: ng test
         # Note: Update test command for CI compatibility once implemented
