@@ -11,8 +11,19 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps: 
+    - name: get Code
+      uses: actions/checkout@v3
+    # cache
+    - name: cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: deps-node-modules-${{ hashFiles('**/package-lock.json)')}}
+    - name: Install Dependencies
+      run: npm ci
+    # Test step  
     - name: test
-      run: echo "test step"
+      run: echo "testing..."
 
 
   # Build
