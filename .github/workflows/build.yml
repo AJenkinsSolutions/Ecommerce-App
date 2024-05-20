@@ -20,6 +20,7 @@ jobs:
       uses: actions/checkout@v3
     # cache
     - name: Cache Dependencies
+      id: cache-step
       uses: actions/cache@v3
       with:
         path: ~/.npm
@@ -40,19 +41,10 @@ jobs:
     
     # Upload results 
     - name: Upload Test Results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: test results
         path: test-report.txt
-    
-    # Set Output
-    - name: set results output
-      id: set-test-results-output
-      run: echo "::set-output name=test_results_file::test-results.txt" 
-    
-    outputs:
-      test_results_file: ${{ steps.set-test-results-output.outputs.test_results_file }}
-  
     
     
 
