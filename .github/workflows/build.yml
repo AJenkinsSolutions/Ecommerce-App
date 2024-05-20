@@ -32,6 +32,8 @@ jobs:
       with:
         path: ~/.npm
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+    - name: Install dependencies
+      run: npm ci
    
       # INSTALL ANGUALR
     - name: Install Angular CLI
