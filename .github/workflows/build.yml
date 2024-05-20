@@ -37,7 +37,7 @@ jobs:
      # Continue on error check
       # So the next steps and jobs will be executed even if this test code step fails
       continue-on-error: true
-      run: ng test --watch=false --browsers=ChromeHeadless > test-results.txt
+      run: ng test --watch=false --browsers=ChromeHeadless > test-report.txt
     
     # Upload results 
     - name: Upload Test Results
