@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Get Code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     # cache
     - name: Cache Dependencies
       id: cache-step
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.npm
         key: deps-node-modules-${{ hashFiles('**/package-lock.json)')}}
@@ -41,7 +41,7 @@ jobs:
     
     # Upload results 
     - name: Upload Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test results
         path: test-report.txt
@@ -58,11 +58,11 @@ jobs:
 
     # CHECKOUT
     - name: Get Code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
       #NODE
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18.16.0'  # Specify Node.js version
     - name: Install dependencies
