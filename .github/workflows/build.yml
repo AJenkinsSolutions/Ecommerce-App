@@ -75,7 +75,13 @@ jobs:
       # BUILD
     - name: Build
       run: ng build
+
+      # Upload build files
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-files
+        path: dist
         
-    # - name: Run tests
-    #   run: ng test
-        # Note: Update test command for CI compatibility once implemented
+    
+    
