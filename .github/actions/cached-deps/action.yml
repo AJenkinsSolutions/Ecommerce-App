@@ -1,0 +1,21 @@
+name: Get & Cache Dependencies
+# no 'on' triggers are not needed in custom actions only workflows
+description: Get the dependencies (via npm) and cache
+# Must use runs
+runs:
+  using: composite
+  steps:
+
+    - name: Cache dependencies
+      id: cache
+      #You can use other actions in your own actions
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+  
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
+      #Using 'run' command:  Must add 'shell key' when making 'composite' actions
+      shell: bash
