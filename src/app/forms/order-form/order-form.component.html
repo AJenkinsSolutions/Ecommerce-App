@@ -1,12 +1,27 @@
 <form [formGroup]="orderFormGroup" (ngSubmit)="onSubmit()">
 
-    <h3 class="my-2 text-2xl">Please Enter Shipping Information</h3>
+    <h3 class="my-2 text-2xl">Payment </h3>
     <div class="mb-3 row">
-        <div class="col">
-            <div>
-                <label class="form-label">Name</label>
-                <input class="form-control" type="string" formControlName="name">
         
+        <!-- name -->
+        <div class="col">
+            <!-- Field -->
+            <div>
+                <label class="form-label">Card Holder</label>
+                <div class="relative">
+                    <!-- input -->
+                    <input type="string" formControlName="name" class="w-full px-4 py-3 text-sm border border-gray-200 rounded-md shadow-sm outline-none form-control pl-11 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="YOUR FULL NAME" />
+                    
+                    <!-- svg icon -->
+                    <div class="absolute inset-y-0 left-0 inline-flex items-center px-3 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
+                        </svg>
+                    </div>
+                    
+                </div>
+                
+                  
                 <!-- Validation Message -->
                 <small class="text-red-500" *ngIf="orderFormGroup.get('name')?.invalid && orderFormGroup.get('name')?.touched">
                     Name is required
@@ -14,10 +29,31 @@
             </div>
             
         </div>
+        
+        <!-- address -->
         <div class="col">
             <div>
-                <label class="form-label">Address</label>
-                <input class="form-control" type="string" formControlName="address">
+                <label class="form-label">Billing Address</label>
+                <!-- <input class="form-control" type="string" formControlName="address"> -->
+                
+                <div class="flex flex-col sm:flex-row">
+                    <div class="relative flex-shrink-0 sm:w-7/12">
+                        
+                      <input type="string" formControlName="address" class="w-full px-4 py-3 text-sm border border-gray-200 rounded-md shadow-sm outline-none form-control pl-11 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Street Address" />
+                      
+                      <div class="absolute inset-y-0 left-0 inline-flex items-center px-3 pointer-events-none">
+                        <img class="object-contain w-4 h-4" src="https://flagpack.xyz/_nuxt/4c829b6c0131de7162790d2f897a90fd.svg" alt="" />
+                      </div>
+                    </div>
+
+                    <select type="text" formControlName="billing-state" class="w-full px-4 py-3 text-sm border border-gray-200 rounded-md shadow-sm outline-none form-control focus:z-10 focus:border-blue-500 focus:ring-blue-500">
+                      <option value="State">State</option>
+                    </select>
+                    
+                    <input type="text" formControlName="billing-zip" class="flex-shrink-0 px-4 py-3 text-sm border border-gray-200 rounded-md shadow-sm outline-none form-control sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" />
+                  </div>
+
+                
                 <!-- Validation Message -->
                  <small class="text-red-500" *ngIf="orderFormGroup.get('address')?.invalid && orderFormGroup.get('address')?.touched">
                     Address Is required
@@ -32,8 +68,25 @@
         <div class="col">
             <div>
                 <label class="form-label">Card Number </label>
-                <input class="form-control" type="string" formControlName="cardNumber">
-                
+                <!-- <input class="form-control" type="string" formControlName="cardNumber">
+                 -->
+                 <div class="flex">
+                    <div class="relative flex-shrink-0 w-7/12">
+                      <input type="string" formControlName="cardNumber" class="w-full px-2 py-3 text-sm border border-gray-200 rounded-md shadow-sm outline-none form-control pl-11 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="xxxx-xxxx-xxxx-xxxx" />
+                      <div class="absolute inset-y-0 left-0 inline-flex items-center px-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z" />
+                          <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <input type="text" formControlName="credit-expiry" class="w-full px-2 py-3 text-sm border border-gray-200 rounded-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="MM/YY" />
+                    <input type="text" formControlName="credit-cvc" class="flex-shrink-0 w-1/6 px-2 py-3 text-sm border border-gray-200 rounded-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="CVC" />
+                  </div>
+
+
+
+                 
                 <small class="text-red-500" *ngIf="orderFormGroup.get('cardNumber')?.invalid && orderFormGroup.get('cardNumber')?.touched">
                    Card Number is Required
                 </small>
@@ -44,9 +97,18 @@
 
     </div>
 
-        
-    
-
+            <div class="py-2 mt-6 border-t border-b">
+                <div class="flex items-center justify-between">
+                <p class="text-sm font-medium text-gray-900">Subtotal</p>
+                <p class="font-semibold text-gray-900">$399.00</p>
+                </div>
+                
+            </div>
+            <div class="flex items-center justify-between mt-6">
+                <p class="text-sm font-medium text-gray-900">Total</p>
+                <p class="text-2xl font-semibold text-gray-900">$408.00</p>
+            </div>
+                  
 <!-- disallow submit btn if form is invalid -->
- <button class="p-2 font-semibold bg-yellow-200 shadow rounded-xl disabled:cursor-not-allowed" type="submit" [disabled]="orderFormGroup.invalid">Submit Order</button>
+ <button class="p-2 font-semibold shadow bg-cyan-500 rounded-xl disabled:cursor-not-allowed" type="submit" [disabled]="orderFormGroup.invalid">Place Order</button>
 </form>
