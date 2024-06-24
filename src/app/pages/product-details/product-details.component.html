@@ -1,22 +1,50 @@
+<!-- product details section -->
+<section id="product-details-section mx-auto">
 
-<div class="container p-4 mx-auto">
+  <!-- product-details-container -->
+  <div class="container flex px-4 mx-auto space-x-2 bg-white">
+    
     <!-- Conditional rendering with @if, @else for loading and error states -->
     @if (product$ | async; as product) {
-      <div class="max-w-sm rounded shadow-lg">
-        <img width="200px" height="200px"class="" [src]="product.image " alt="{{ product.title }}">
-        <div class="px-6 py-4">
-          <div class="mb-2 text-xl font-bold">{{ product.title }}</div>
+
+      <!-- Product details image container -->
+      <div class="w-1/2">
+        <!-- Image -->
+        <img height="400px" width="400px" class="mx-auto" [src]="product.image " alt="{{ product.title }}">
+        
+      </div>
+      
+      <!-- text container -->
+      <div class="flex flex-col w-1/2 h-full p-4 m-24 space-y-2 bg-white">
+
+        
+          <!-- title -->
+          <div class="text-xl font-bold">{{ product.title }}</div>
+          <!-- description -->
           <p class="text-base text-gray-700">
             {{ product.description }}
           </p>
-        </div>
-        <div class="px-6 pt-4 pb-2">
+        
+        
+        <!-- Tags -->
+        <div class="">
           <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.category }}</span>
           <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.price | currency }}</span>
           <!-- <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{ product.rating.rate}}</span> -->
         </div>
-        <button (click)="additemToCartDispatcher(product)" type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
+        
+        <!-- button -->
+        <div>
+          <button (click)="additemToCartDispatcher(product)" type="button" class="add-to-cart-button"> Add to cart </button>
+        </div>
+        
+        
+     
       </div>
+
+      
+      
+      
     } @else if (error | async){
       <div class="text-center">
         <span class="text-3xl"> Error while retreiving Product list </span>
@@ -27,4 +55,7 @@
           </div>
     }
 </div>
+  
+</section>
+
   

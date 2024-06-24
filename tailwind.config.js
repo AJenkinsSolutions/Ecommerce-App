@@ -4,7 +4,16 @@ module.exports = {
       "./src/**/*.{html,ts}",
     ],
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          softBlue: 'hsl(231, 69%, 60%)',
+          softRed: 'hsl(0, 94%, 66%)'
+        },
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'],
+        }
+        
+      },
     },
     plugins: [],
   }

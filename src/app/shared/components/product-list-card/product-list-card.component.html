@@ -1,25 +1,29 @@
-<div class="overflow-hidden bg-white sm:rounded sm:shadow-lg sm:max-w-sm" >
+<div class="product-card-container" >
     <!-- propert binding -->
-    <img width="200px" height="200px"  class="block mx-auto" [src]="product.image" alt="....">
+    <!-- image -->
+    <img class="product-image" [src]="product.image" alt="....">
+    
+    <!-- description -->
     <div class="px-6">
-      <div class="mb-2 text-xl font-bold">{{product.title}}</div>
-      <p class="text-base text-gray-700">
+      <div class="mb-2 text-xl font-bold line-clamp-1">{{product.title}}</div>
+      <p class="text-base text-gray-700 line-clamp-3">
         <!-- substring lets shortern the string text -->
        {{product.description.substring(0, 100)}}...
       </p>
     </div>
 
+    <!-- Button icon things -->
     <div class="px-6 pt-2">
       <span  class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{product.category}}</span>
       <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{product.rating.rate}}</span>
       <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{product.price | currency}}</span>
     </div>
 
-
+    <!-- buttons -->
     <div class="grid grid-cols-2 pt-2 pb-2">
 
-      <button (click)="navigateToProduct(product.id)" type="button" class="px-4 py-2 mx-4 font-bold text-white bg-green-500 rounded hover:bg-gray-700"> View product </button>
-      <button (click)="addCart(product)" type="button" class="px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700"> Add to cart </button>
+      <button (click)="navigateToProduct(product.id)" type="button" class="view-product-button"> View product </button>
+      <button (click)="addCart(product)" type="button" class="add-to-cart-button"> Add to cart </button>
       
     </div>
 

@@ -48,3 +48,25 @@ $angular-material-tailwind-boilerplate-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.view-product-button {
+  @apply px-4 py-2 mx-4 font-bold text-white bg-green-500 rounded hover:bg-gray-700
+}
+
+.add-to-cart-button {
+  @apply px-2 py-2 mx-2 font-bold text-white bg-yellow-500 rounded hover:bg-gray-700
+}
+
+
+.product-card-container {
+  width: 400px;
+  height: 460px;
+  @apply overflow-hidden bg-white sm:rounded sm:shadow-lg sm:max-w-sm mx-auto px-4 pt-2 space-y-2
+  
+}
+
+.product-image {
+  width: 200px; /* Make the image responsive */
+  height: 200px; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the entire frame */
+  @apply mx-auto
+}
