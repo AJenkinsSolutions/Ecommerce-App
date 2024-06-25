@@ -5,15 +5,16 @@
     {{cartItems$ | async | json }}
 </span>
  -->
+ <div class="dark:bg-gray-800">
  @if ((cartItems$ | async)?.length === 0) {
     <!-- This could be a seperate component, which is only visible when required -->
-      <div class="flex flex-col max-w-3xl p-6 px-2 mx-auto space-y-4 bg-white rounded-md sm:p-10 sm:px-2">
+      <div class="flex flex-col max-w-3xl min-w-full p-6 px-2 mx-auto space-y-4 bg-white rounded-md sm:p-10 sm:px-2 dark:bg-gray-800 dark:text-white">
         <h2 class="text-3xl font-bold text-center">Your cart is Empty!</h2>
       </div>
       
       }
       @else {
-      <div class="flex flex-col max-w-3xl p-6 px-2 mx-auto space-y-4 bg-white rounded-md sm:p-10 sm:px-2">
+      <div class="flex flex-col w-screen max-w-3xl px-12 mx-auto space-y-4 bg-white rounded-md sm:p-10 sm:px-2 ">
         <h2 class="text-3xl font-bold">Your cart</h2>
         <ul class="flex flex-col divide-y divide-gray-200 h-[400px] overflow-y-auto">
           @for (item of cartItems$ | async; track $index) {
@@ -56,7 +57,7 @@
                     <span>Add to favorites</span>
                   </button>
                   <!-- Quantity Controls -->
-                  <div class="flex items-center pl-4 quantity-controls">
+                  <div class="flex items-center pl-4 quantity-controls dark:text-black">
                     <button (click)="decrementItemQuantity(item.id)"
                       class="px-2 py-1 text-gray-600 bg-red-300 rounded-l decrement-button hover:bg-red-400">
                       -
@@ -91,4 +92,4 @@
         </div>
       </div>
       }
-  
+    </div>
